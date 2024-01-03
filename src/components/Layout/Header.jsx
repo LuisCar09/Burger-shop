@@ -8,14 +8,15 @@ const Header = () =>{
     
         <header className="App-header">
         <motion.div animate={{x:-100}} whileInView={{x:0}} >
-        <FastfoodIcon style={{fontSize:"2rem"}} />
+        <FastfoodIcon style={{fontSize:"2.6rem"}} />
         </motion.div>
 
         <div className="nav-right">
             
-            <Link to={'/'}>Menu</Link> 
+            <Link to={'/'}>Home</Link>
             
-            <MenuIcon style={{fontSize:"2rem"}}/>
+            
+            <MenuIcon style={{fontSize:"2.6rem"}}/>
         </div>    
         
         </header> 
