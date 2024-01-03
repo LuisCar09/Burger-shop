@@ -8,7 +8,7 @@ const Header = () =>{
     
         <header className="App-header">
         <motion.div animate={{x:-100}} whileInView={{x:0}} >
-        <FastfoodIcon style={{fontSize:"2.6rem"}} />
+        <FastfoodIcon style={{fontSize:"3.6rem"}} />
         </motion.div>
 
         <div className="nav-right">
@@ -16,7 +16,7 @@ const Header = () =>{
             <Link to={'/'}>Home</Link>
             
             
-            <MenuIcon style={{fontSize:"2.6rem"}}/>
+            <MenuIcon style={{fontSize:"3.6rem"}}/>
         </div>    
         
         </header> 
