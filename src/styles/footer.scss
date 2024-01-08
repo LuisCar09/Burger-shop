@@ -1,0 +1,68 @@
+@import 'colors';
+.footer{
+    background-color: $dark;
+    padding: 1rem;
+    
+    
+    >div{
+
+        color:$pink;
+        border-bottom: 0.1rem solid $pink;
+        >h2{
+            color: $reddark;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-family: fantasy;
+        }
+        >p{
+            margin-left: 1rem;
+            margin-bottom: 3rem;
+            font-size: 1.6rem;
+            font-family: fantasy;
+        }
+    }
+    >aside{
+        border-bottom: 0.1rem solid $pink;
+        background-color: $dark;
+        width: 100%;
+        padding: 1.6rem 0;
+        >h5{
+            font-size: 2rem;
+            color: $reddark;
+            text-align: center;
+            
+            font-weight: 700;
+        }
+        >ul{
+            display: flex;
+            justify-content: space-around;
+            color: $pink;
+            margin: 1.6rem 0;
+            
+            >li{
+                margin: 1rem;
+                list-style: none;
+                >a{
+                    text-decoration: none;
+                    color: $pink;
+                    font-size: 1.6rem;
+                }
+                >svg{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    .second-parragraph{
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+    .rights{
+        margin-top: 1rem;
+        color: $pink;
+        padding: 1rem;
+        text-align: end;
+        
+    }
+}
