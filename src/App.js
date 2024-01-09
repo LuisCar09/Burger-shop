@@ -8,6 +8,7 @@ import Footer from './components/Layout/Footer';
 import './styles/header.scss'
 import './styles/home.scss'
 import './styles/footer.scss'
+import './styles/dropDownMenu.scss'
 
 function App() {
   return (
