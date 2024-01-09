@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import Stack from '@mui/material/Stack';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -8,8 +8,24 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     const date = new Date().getFullYear()
-
+    const [width,setWidth] = useState(window.innerWidth)
+    
     const info = ['FAQs','About us', 'Contact us']
+    
+    // Función para manejar cambios en el tamaño de la ventana
+    const handlerSize = () => {
+        setWidth(window.innerWidth)
+    }
+
+    // Agregar un event listener cuando el componente se monta
+    useEffect(()=>{
+        window.addEventListener('resize',handlerSize)
+        
+        // Limpiar el event listener cuando el componente se desmonta
+        return () => {window.removeEventListener('resize',handlerSize)}
+
+    },[])// El segundo argumento vacío asegura que el efecto se ejecute solo una vez al montar/desmontar el componente
+
     return(
         <footer className="footer">
         
@@ -22,10 +38,8 @@ const Footer = () => {
         
         <aside className="footer__social-media" >
             
-        <h5>Info</h5>
-        <ul>
-            {info.map((inf)=> { return <li><Link>{inf}</Link></li>})}
-        </ul>
+        {width > 720 ? null : <h5>Info</h5>}
+        {width > 720 ? null : <ul>{info.map((inf)=> { return <li><Link>{inf}</Link></li>})}</ul>}
             
         
         
