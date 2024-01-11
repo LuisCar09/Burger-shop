@@ -5,12 +5,14 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { Link } from "react-router-dom";
-
+import List from "./List";
 const Footer = () => {
     const date = new Date().getFullYear()
     const [width,setWidth] = useState(window.innerWidth)
+    const items = [{name:<YouTubeIcon  />,link:'https://www.youtube.com/'},{name:<InstagramIcon />,link:'https://www.instagram.com/'},{name:<GitHubIcon />,link:'https://github.com/LuisCar09'},{name:<TwitterIcon />,link:'https://twitter.com/home?lang=es'}]
     
-    const info = ['FAQs','About us', 'Contact us']
+    // const info = ['FAQs','About us', 'Contact us']
+    const info = [{name:'FAQs',link:'/faqs'},{name:'About us',link:'/aboutus'},{name:'Contact us',link:'/contact'}]
     
     // Función para manejar cambios en el tamaño de la ventana
     const handlerSize = () => {
@@ -39,26 +41,13 @@ const Footer = () => {
         <aside className="footer__social-media" >
             
         {width > 720 ? null : <h5>Info</h5>}
-        {width > 720 ? null : <ul>{info.map((inf)=> { return <li><Link>{inf}</Link></li>})}</ul>}
+        {width > 720 ? null : <List items={info} target={false} />}
             
         
         
         <h5>Follow us</h5>
-
-        <ul>
-            <li>
-                <YouTubeIcon />
-            </li>
-            <li>
-                <InstagramIcon />
-            </li>
-            <li>
-                <GitHubIcon />
-            </li>
-            <li>
-                <TwitterIcon />
-            </li>
-        </ul>
+        <List items={items} target={true} />
+        
         </aside>
         <p className="rights" > <strong>All right received  @burgershop © {date}</strong></p>
         </footer>
