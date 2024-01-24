@@ -67,6 +67,37 @@
         
     }
 }
-@media screen and (max-width:420px) {
-    
+@media screen and (min-width:768px) {
+    .footer{
+        >div{
+            >h2{
+                border-top: 1px solid #fff;
+                font-size: 4rem;
+            }
+            >p{
+                font-size: 2.2rem;
+            }
+        }
+        >aside{
+            >h5{
+                font-size: 4rem;
+            }
+            >ul{
+                >li{
+                    
+                    >a{
+                        
+                        >svg{
+                            font-size: 3.6rem;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .rights{
+            font-size: 1.6rem;   
+        }
+
+    }   
 }
