@@ -5,6 +5,8 @@ import Header from './components/Layout/Header';
 import Home from './components/home/Home';
 import Footer from './components/Layout/Footer';
 import Menu from './components/home/Menu';
+import About from './components/about/About';
+
 
 import './styles/header.scss'
 import './styles/home.scss'
@@ -12,6 +14,7 @@ import './styles/footer.scss'
 import './styles/dropDownMenu.scss'
 import './styles/Menu.scss'
 import './styles/card.scss'
+import './styles/about.scss'
 
 function App() {
   return (
@@ -21,7 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/menu" element={<Menu />} />
-        
+        <Route path='/aboutus' element={<About />} />
       </Routes>
 
       <Footer />

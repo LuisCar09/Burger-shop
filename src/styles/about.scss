@@ -1,0 +1,151 @@
+@import 'colors';
+
+section{
+    
+    >main{
+        
+        >h2{
+            font-size: 2rem;
+            background-color: $dark;
+            padding: 1rem 0.4rem 2rem 0.4rem;
+            color: $red;
+            text-transform: uppercase;
+        }
+        >article{
+            text-align: center;
+            padding: 6rem 8rem;
+            // max-height: 60vh;
+            >h2{
+                font-size: 2rem;
+                color: $lightdark;
+                font-weight: 300;
+                text-transform: uppercase;
+                margin: 2rem 0;
+            }
+            >p{
+                color: $dark;
+                font-size: 1.6rem;
+                margin: 4rem 0;
+                letter-spacing: 0.2rem;
+                line-height: 150%;
+            }
+            >svg{
+                width: 2rem;
+                height: 2rem;
+            }
+            .about-icon{
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                background: $dark;
+                fill: #fff;
+            }
+        }
+        >div{
+            background-color: $dark;
+            padding: 2rem 1rem;
+            
+            >h2{
+                text-align: center;
+                font-size: 1.8rem;
+                letter-spacing: 0.1rem;
+                text-transform: uppercase;
+                color: #fff;
+                margin-bottom: 2rem;
+            }
+            >article{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: 0.1rem solid #fff;
+                
+                >div{
+                    
+                    >img{
+                        width: 10rem;
+                        height: 10rem;
+                        border-radius: 50%;
+                        margin: 1rem;
+                        object-fit: cover;
+                    }
+                    >h2{
+                        font-size: 1.8rem;
+                        color: #fff;
+                        text-align: center;
+                        margin-bottom: 2rem;
+                    }
+                   
+                }
+                >p{
+                    margin: 0 1rem;
+                    color: #fff;
+                    font-size: 1.2rem;
+                    width: 50%;
+                    letter-spacing: 0.2rem;
+                    line-height: 150%;
+                    
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:767px) {
+    section{
+        main{
+            >h2{
+                font-size: 4rem;
+                
+            }
+            >article{
+                
+                padding: 6rem 12rem;
+                
+                >h2{
+                    font-size: 4.6rem;
+                    margin: 2rem 0;
+                }
+                >p{
+                    font-size: 3rem;
+                    margin: 8rem 0;
+                }
+                
+                .about-icon{
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 50%;
+                    background: $dark;
+                    fill: #fff;
+                }
+            }
+            >div{
+                padding: 2rem 1rem;
+
+                >h2{
+                    font-size: 4.6rem;
+
+                }
+                >article{
+                    border-bottom:none;
+                    
+                    >div{
+                        
+                        >img{
+                            width: 20rem;
+                            height: 20rem;
+                        }
+                        >h2{
+                            font-size: 3.8rem;
+
+                        }
+                       
+                    }
+                    >p{
+
+                        font-size: 2.2rem;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
