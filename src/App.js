@@ -11,6 +11,7 @@ import './styles/home.scss'
 import './styles/footer.scss'
 import './styles/dropDownMenu.scss'
 import './styles/Menu.scss'
+import './styles/card.scss'
 
 function App() {
   return (

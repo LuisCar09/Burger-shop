@@ -11,7 +11,7 @@ const Card = ({picture,name,price}) => {
     //         setPopUp(false)
     //     }, 1000);
     // }
-    const [popup, setPopup] = useState(true);
+    const [popup, setPopup] = useState(false);
 
     const handlerMessage = () => {
       setPopup(true);

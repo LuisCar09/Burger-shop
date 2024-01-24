@@ -1,6 +1,6 @@
 import React, { useState} from "react"
 import FastfoodIcon from '@mui/icons-material/Fastfood';
-// import {IoFastFoodOutline} from 'react-icons/io5'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ const Header = () =>{
         </motion.div>
 
         <div className="nav-right">
-            
+            <ShoppingCartIcon style={{fontSize:"3.4rem", margin:'0px 1rem'}} />
             <Link to={'/'}>Home</Link>
             
             
