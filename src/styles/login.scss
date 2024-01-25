@@ -1,0 +1,111 @@
+@import 'colors';
+
+.login-section{
+    font-family: "Roboto";
+    >div{
+        text-align: center;
+        padding: 7rem 2rem;
+        
+        >article{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top :3rem;
+            >button{
+                width: 49% ;
+                padding: 1rem;
+                border: 0.1rem solid transparent;
+                text-transform: uppercase;
+                border-radius: 0.6rem;
+                color: $lightdark;
+                font-weight: bold;
+            }
+        }
+        >div{
+            h4{
+                font-size: 1.8rem;
+                font-weight: 300;
+                color: $lightdark;
+                margin: 3rem 0;
+            }
+            >a{
+                margin: 0 2.6rem;
+                >svg{
+                    
+                    font-size: 2.6rem;
+                    fill: #11468F;
+                    background: #ECF2FF;
+                }
+            }
+        }
+        >form{
+            
+            >input{
+                width: 100%;
+                padding: 1rem;
+                margin: 1rem 0;
+                font-size: 1.4rem;
+                border-radius: 0.4rem;
+                border: 0.1rem solid #999;
+                color: $dark;
+                margin: 0 0 3rem 0;
+                &:focus{
+                    outline: none;
+                }
+            }
+            >div{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 3rem 0;
+                color: $dark;
+                >article{
+                    >input{
+                        transform: scale(1.2);
+                        margin-left: 1.4rem;
+                    }
+                    >label{
+                        font-size: 1.6rem;
+                        margin-left: 0.4rem;
+                    }
+                }
+                >a{
+                    text-decoration: none;
+                    color:#11468F;
+                    font-size: 1.6rem;
+                    margin-right: 1.4rem;
+                    font-weight: 500;
+                }
+            }
+            >button{
+                margin:2rem 0;
+                width: 100%;
+                background: #11468F;
+                border: none;
+                border-radius: 0.4rem;
+                color: white;
+                text-transform: uppercase;
+                padding: 1.2rem;
+                font-weight: bold;
+                box-shadow: rgba(17, 70, 104, 0.35) 0px 5px 15px;
+                &:active{
+                    scale:0.98;
+                }
+            }
+
+        }
+        >p{
+            margin: 2rem 0 3rem 0;
+            font-size: 1.6rem;
+            >a{
+                text-decoration: none;
+                color: #11468F;
+                margin: 0.2rem;
+                
+            }
+            
+        }
+        
+    }
+}

@@ -31,7 +31,7 @@ const DropDownMenu = ({close,isOpen}) =>{
     const handleMenuItemClick = (event) =>{
         event.stopPropagation(); //evitamos la propagacion y asi cuando se haga click en los items no se cierre
     }
-    const item = (<div className="dropDownMenu" onClick={handleMenuItemClick} > <ul>{items.map((items,index) => {return(<li key={index}><Link>{items}</Link></li>)}  )}</ul></div>)
+    const item = (<div className="dropDownMenu" onClick={handleMenuItemClick} > <ul>{items.map((item,index) => {return(<li key={index}><Link to={`/${item}`}>{item}</Link></li>)}  )}</ul></div>)
     return(
         //me hara la transition fade cuando isOPen sea true y me devuelve el valor de item con lo asignado para renderizar
         <Fade in={isOpen} timeout={200} >{item}</Fade>
