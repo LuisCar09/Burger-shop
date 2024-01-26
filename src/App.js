@@ -7,6 +7,9 @@ import Footer from './components/Layout/Footer';
 import Menu from './components/home/Menu';
 import About from './components/about/About';
 import Login from './components/login/Login';
+import Contact from './components/contact/Contact';
+import textArea from './components/text_area/TextArea';
+
 
 import './styles/header.scss'
 import './styles/home.scss'
@@ -16,6 +19,7 @@ import './styles/Menu.scss'
 import './styles/card.scss'
 import './styles/about.scss'
 import './styles/login.scss'
+import './styles/contact.scss'
 
 function App() {
   return (
@@ -27,6 +31,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path='/aboutus' element={<About />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
 
       <Footer />
