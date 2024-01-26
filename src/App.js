@@ -8,7 +8,7 @@ import Menu from './components/home/Menu';
 import About from './components/about/About';
 import Login from './components/login/Login';
 import Contact from './components/contact/Contact';
-import textArea from './components/text_area/TextArea';
+import Cart from './components/cart/Cart';
 
 
 import './styles/header.scss'
@@ -20,6 +20,7 @@ import './styles/card.scss'
 import './styles/about.scss'
 import './styles/login.scss'
 import './styles/contact.scss'
+import './styles/cart.scss'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/aboutus' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/order' element={<Cart />} />
       </Routes>
 
       <Footer />

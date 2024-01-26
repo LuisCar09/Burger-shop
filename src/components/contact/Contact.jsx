@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Input from '../input/Input'
 import textArea from "../text_area/TextArea";
+import Input from '../input/Input'
+
 const Contact = () => {
     
     const [popUp,setPopUp] = useState(false)
