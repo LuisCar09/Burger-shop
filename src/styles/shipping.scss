@@ -1,0 +1,133 @@
+@import 'colors';
+
+.shipping{
+    display: flex;
+    justify-content: center;
+    >form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 0;
+        position: relative; 
+        >h2{
+            font-size: 3rem;
+            margin: 3rem 0rem ;
+            text-transform: uppercase;
+            color: $lightdark;
+            font-weight: 300;
+        }
+        >div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2.2rem;
+            width: 100%;
+            font-size: 2rem;
+            >input,select{
+                margin: 2rem 0;
+                padding: 1rem;
+                font-size: 1.4rem;
+                border-radius: 0.4rem;
+                border: 0.1rem solid $lightdark;
+                width: 20rem;
+                background-color: white;
+                &:focus{
+                    outline: none;
+                }
+            }
+            >label{
+                color: $lightdark;
+            }
+        }
+        >button{
+            padding: 1rem 3rem;
+            border: 0.1rem solid transparent;
+            background: $reddark ;
+            border-radius: 0.6rem;
+            margin: 2rem 0 2rem 0;
+            >a{
+                text-decoration: none;
+                font-size: 1.6rem;
+                font-weight: bold;
+                color: #fff;
+            }
+        }
+        >article{
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 1rem;
+            font-size: 1.6rem;
+            bottom: 20rem;
+            >p{
+                color: $reddark;
+            }
+        }
+    }
+}
+@media screen and (min-width:767px) {
+    .shipping{
+        >form{
+           
+            width: 48rem;
+            >div{
+                // justify-content: center;
+                >input,select{ 
+                    width: 320px;
+                    margin-left: 2rem;
+                }
+            }
+            >button{
+                padding: 1.6rem 3.6rem;
+                margin: 2rem 0 2rem 0;
+                >a{
+                    text-decoration: none;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .shipping{
+        >form{
+            padding: 8rem 0;
+            width: 58rem;
+            >h2{
+                font-size: 5rem;
+            }
+            
+            >div{
+                
+                >input,select{ 
+                    width: 40rem;
+                    margin-left: 2rem;
+                    font-size: 1.6rem;
+                    margin: 2.4rem 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .shipping{
+        >form{
+            width: 60rem;
+            >div{
+                
+                >input,select{ 
+                    width: 42rem;
+                    margin-left: 2rem;
+                    font-size: 1.6rem;
+                    margin: 2.4rem 0;
+                }
+            }
+        }
+        
+    }
+}
