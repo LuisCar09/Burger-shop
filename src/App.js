@@ -10,6 +10,8 @@ import Login from './components/login/Login';
 import Contact from './components/contact/Contact';
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
+import Orders from './components/MyOrders/Orders';
+import OrderDetails from './components/MyOrders/OrderDetails';
 
 import './styles/header.scss'
 import './styles/home.scss'
@@ -22,7 +24,8 @@ import './styles/login.scss'
 import './styles/contact.scss'
 import './styles/cart.scss'
 import './styles/shipping.scss'
-
+import './styles/orders.scss'
+import './styles/orderDetails.scss'
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/order' element={<Cart />} />
         <Route path='/shipping' element={<Shipping />} />
+        <Route path='/orders' element={<Orders />} />
+        <Route path='/details' element={<OrderDetails />} />
+      
       </Routes>
 
       <Footer />

@@ -19,7 +19,7 @@ const Shipping = ()=>{
     const handlerPopUp = (event) => {
         console.log('click');
         setPopUp(true)
-        // event.preventDefault()
+        event.preventDefault()
         setTimeout(() => {
             setPopUp(false)
         }, 1000);
@@ -63,7 +63,7 @@ const Shipping = ()=>{
 
             <div>
             <Label id={'zipCode'} text={'Pin Code'} />
-            <Input type="text" id={'zipCode'} name={'zipCode'}  required={true} pattens={'[0-9}{5}(-[0-9]{4})'} />
+            <Input type="text" id={'zipCode'} name={'zipCode'}  required={true} patterns={'[0-9}{5}(-[0-9]{4})'} />
             </div>
 
             <div>
@@ -71,7 +71,7 @@ const Shipping = ()=>{
             <Input type="number" id={'phone-number'} name={'phone-number'}  />
             </div>
 
-            <button onClick={handlerPopUp} type="submit"><Link to={'/myorders'}>Confirm Order</Link></button>
+            <button onClick={handlerPopUp} type="submit"><Link to={'/orders'}>Confirm Order</Link></button>
 
             {popUp && 
             <article className="popUp-container">
