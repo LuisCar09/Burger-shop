@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import founder from '../../assets/1696431556553.jpg'
 const About = () =>{
     return(
-        <section>
+        <section className="about-us">
             <main>
                 
                     
