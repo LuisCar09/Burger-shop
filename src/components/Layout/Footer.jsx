@@ -40,8 +40,8 @@ const Footer = () => {
         
         <aside className="footer__social-media" >
             
-        {width > 720 ? null : <h5>Info</h5>}
-        {width > 720 ? null : <List items={info} target={false} />}
+        {width > 767 ? null : <h5>Info</h5>}
+        {width > 767 ? null : <List items={info} target={false} />}
             
         
         
