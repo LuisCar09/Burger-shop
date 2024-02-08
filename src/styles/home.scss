@@ -48,22 +48,24 @@
 
     }
 }
-
 @media screen and (min-width: 425px) {
     .home {
         >div {
 
             >h1 {
-                font-size: 4.6rem;
+                font-size: 5rem;
             }
 
             >p {
-                font-size: 1.8rem;
+                font-size: 2.1rem;
             }
         }
-        a{
-             top:37rem
+
+        a {
+            top: 38rem;
+            font-size: 2rem;
         }
+
         &::before {
             // height: calc(100vh + 10rem); 
             background-size: 260% 100%;
@@ -73,88 +75,110 @@
 
 
 
- @media screen and (min-width: 767px) {
-     .home {
-         >div {
-             >h1 {
-                 font-size: 6.6rem;
-             }
+@media screen and (min-width: 767px) {
+    .home {
+        >div {
+            >h1 {
+                font-size: 6.6rem;
+                letter-spacing: 0.6rem;
+            }
 
-             >p {
-                 font-size: 2.8rem;
-             }
-         }
+            >p {
+                font-size: 2.8rem;
+                letter-spacing: 0.2rem;
+            }
+        }
 
-         &::before {
-             background-size: 290% 100%;
-             left: -50px;
-         }
+        &::before {
+            background-size: 260% 100%;
+            left: -50px;
+        }
 
-         a {
-             top: 40rem;
-             padding: 2.4rem;
-             font-size: 2.2rem;
-             &:hover{
+        a {
+            top: 40rem;
+            padding: 2.4rem;
+            font-size: 2.2rem;
+            letter-spacing: 0.1rem;
+            &:hover {
                 background-color: transparent;
                 border: 1px $reddark solid;
                 color: $reddark;
-            } 
-         }
-     }
- }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 1024px) {
-    .home{
+    .home {
         div {
             left: 7.2rem;
+
             >h1 {
                 font-size: 8.6rem;
             }
-    
+
             >p {
                 font-size: 3.2rem;
             }
         }
+
+
         a {
             left: 7.2rem;
             top: 43rem;
-        &:hover{
-            background-color: transparent;
-            border: 1px $reddark solid;
-            color: $reddark;
-        }   
+            font-size: 2.6rem;
+            &:hover {
+                background-color: transparent;
+                border: 1px $reddark solid;
+                color: $reddark;
+            }
         }
     }
 
 }
 
 @media screen and (min-width: 1440px) {
-    .home{
+    .home {
         div {
             left: 7.2rem;
+
             >h1 {
                 font-size: 9.6rem;
                 letter-spacing: 0.6rem;
             }
-    
+
             >p {
                 font-size: 3.2rem;
                 letter-spacing: 0.4rem;
             }
         }
+
         &::before {
             background-size: 250% 100%;
             left: -50px;
         }
+
         a {
-            
+
             top: 45rem;
             left: 7.2rem;
-        &:hover{
-            background-color: transparent;
-            border: 1px $reddark solid;
-            color: $reddark;
-        }   
+
+            &:hover {
+                background-color: transparent;
+                border: 1px $reddark solid;
+                color: $reddark;
+            }
         }
     }
 
+}
+@media screen and (min-width: 2100px) {
+    .home{
+        div{
+            top: 40rem;
+        }
+        a{
+            top:56rem
+        }
+    }
 }
