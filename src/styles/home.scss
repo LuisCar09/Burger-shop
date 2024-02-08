@@ -62,7 +62,7 @@
             }
         }
         a{
-            top:37em
+             top:37rem
         }
         &::before {
             // height: calc(100vh + 10rem); 
@@ -71,25 +71,7 @@
     }
 }
 
-// @media screen and (min-width: 425px) {
-//     .home {
-//         >div {
 
-//             >h1 {
-//                 font-size: 4.6rem;
-//             }
-
-//             >p {
-//                 font-size: 1.8rem;
-//             }
-//         }
-
-//         &::before {
-
-//             background-size: 270% 100%;
-//         }
-//     }
-// }
 
  @media screen and (min-width: 767px) {
      .home {
