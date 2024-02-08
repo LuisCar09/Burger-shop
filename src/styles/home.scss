@@ -1,24 +1,29 @@
 @import 'colors';
-.home{
+
+.home {
     height: 80vh;
     position: relative;
     color: $lightdark;
     overflow: hidden;
-    >div{
+
+    >div {
         position: relative;
-        top: 20rem;
+        top: 28rem;
         left: 3.2rem;
-        >h1{
+
+        >h1 {
             font-size: 4rem;
             text-transform: uppercase;
         }
-        >p{
-        font-size: 1.6rem;
+
+        >p {
+            font-size: 1.6rem;
         }
     }
-    a{
+
+    a {
         position: absolute;
-        top: 29rem;
+        top: 36rem;
         left: 3.2rem;
         text-decoration: none;
         color: $pink;
@@ -27,12 +32,13 @@
         border-radius: 0.8rem;
         font-size: 1.6rem;
     }
-    &::before{
+
+    &::before {
         content: '';
         background-image: url('../assets/bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        
+        background-size: 250% 88%;
         z-index: -1;
         position: absolute;
         height: calc(100vh + 5rem);
@@ -42,61 +48,131 @@
 
     }
 }
-@media screen and (min-width: 410px) {
-    .home{
-        >div{
-            
-            >h1{
-                font-size: 4.6rem; 
-            }
-            >p{
-            font-size: 1.8rem;
-            }
-        }
-        &::before{
-            // height: calc(100vh + 10rem); 
-            background-size: 260% 100%;  
-        }
-    }
-}
+
 @media screen and (min-width: 425px) {
-    .home{
-        >div{
-            
-            >h1{
-                font-size: 4.6rem; 
+    .home {
+        >div {
+
+            >h1 {
+                font-size: 4.6rem;
             }
-            >p{
-            font-size: 1.8rem;
+
+            >p {
+                font-size: 1.8rem;
             }
-        }
-        &::before{
-            
-            background-size: 260% 100%;  
-        }
-    }
-}
-@media screen and (min-width: 767px) {
-    .home{
-        >div{
-            >h1{
-                font-size: 6.6rem; 
-            }
-            >p{
-            font-size: 2.8rem;
-            }
-        }
-        &::before{
-            
-            background-size: 280% 100%;  
-            left: -50px;
         }
         a{
-            
-            top: 32rem;
-            padding: 2.4rem;
-
-            font-size: 2.2rem;
+            top:37em
+        }
+        &::before {
+            // height: calc(100vh + 10rem); 
+            background-size: 260% 100%;
         }
     }
+}
+
+// @media screen and (min-width: 425px) {
+//     .home {
+//         >div {
+
+//             >h1 {
+//                 font-size: 4.6rem;
+//             }
+
+//             >p {
+//                 font-size: 1.8rem;
+//             }
+//         }
+
+//         &::before {
+
+//             background-size: 270% 100%;
+//         }
+//     }
+// }
+
+ @media screen and (min-width: 767px) {
+     .home {
+         >div {
+             >h1 {
+                 font-size: 6.6rem;
+             }
+
+             >p {
+                 font-size: 2.8rem;
+             }
+         }
+
+         &::before {
+             background-size: 290% 100%;
+             left: -50px;
+         }
+
+         a {
+             top: 40rem;
+             padding: 2.4rem;
+             font-size: 2.2rem;
+             &:hover{
+                background-color: transparent;
+                border: 1px $reddark solid;
+                color: $reddark;
+            } 
+         }
+     }
+ }
+@media screen and (min-width: 1024px) {
+    .home{
+        div {
+            left: 7.2rem;
+            >h1 {
+                font-size: 8.6rem;
+            }
+    
+            >p {
+                font-size: 3.2rem;
+            }
+        }
+        a {
+            left: 7.2rem;
+            top: 43rem;
+        &:hover{
+            background-color: transparent;
+            border: 1px $reddark solid;
+            color: $reddark;
+        }   
+        }
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    .home{
+        div {
+            left: 7.2rem;
+            >h1 {
+                font-size: 9.6rem;
+                letter-spacing: 0.6rem;
+            }
+    
+            >p {
+                font-size: 3.2rem;
+                letter-spacing: 0.4rem;
+            }
+        }
+        &::before {
+            background-size: 250% 100%;
+            left: -50px;
+        }
+        a {
+            
+            top: 45rem;
+            left: 7.2rem;
+        &:hover{
+            background-color: transparent;
+            border: 1px $reddark solid;
+            color: $reddark;
+        }   
+        }
+    }
+
 }
