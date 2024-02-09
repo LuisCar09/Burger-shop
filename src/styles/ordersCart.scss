@@ -1,0 +1,84 @@
+@import 'colors';
+
+.orders-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $pink;
+
+    >main {
+        max-height: 90rem;
+        overflow-x: auto;
+        padding: 2rem;
+        background-color: white;
+
+        >table {
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 1.6rem;
+
+            >thead {
+                background-color: black;
+            }
+
+            tr {
+                background-color: whitesmoke;
+
+                &:last-child {
+                    td:first-child {
+                        border-radius: 0 0 0 1rem;
+                    }
+
+                    td:last-child {
+                        border-radius: 0 0 1rem 0;
+                    }
+                }
+
+
+            }
+
+            th,
+            td {
+                padding: 1rem;
+
+            }
+
+            th {
+                background-color: $dark;
+                color: whitesmoke;
+
+                &:first-child {
+                    border-radius: 1rem 0 0 0;
+
+                }
+
+                &:last-child {
+                    border-radius: 0 1rem 0 0;
+                }
+
+            }
+
+            td {
+                color: $lightdark;
+
+                >a {
+                    cursor: pointer;
+                    font-size: 2rem;
+
+                    >svg {
+                        color: $reddark;
+
+                        &:hover {
+
+                            scale: 1.15;
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+
+}

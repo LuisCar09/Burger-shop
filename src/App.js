@@ -13,6 +13,8 @@ import Shipping from './components/cart/Shipping';
 import Orders from './components/MyOrders/Orders';
 import OrderDetails from './components/MyOrders/OrderDetails';
 
+
+
 import './styles/header.scss'
 import './styles/home.scss'
 import './styles/footer.scss'
@@ -26,6 +28,7 @@ import './styles/cart.scss'
 import './styles/shipping.scss'
 import './styles/orders.scss'
 import './styles/orderDetails.scss'
+import './styles/ordersCart.scss'
 
 function App() {
   return (
