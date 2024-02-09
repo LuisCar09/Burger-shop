@@ -36,14 +36,22 @@
             background-color: $reddark;
             border-radius: 0.5rem;
             border: 0.1rem solid transparent;
-            color: white;
+            
             padding: 1rem;
             margin-bottom: 2rem;
             font-weight: bold;
             &:hover{
-                color: $lightdark;
-                background-color: white;
+                color: $reddark;
                 border: 0.1rem solid $reddark;
+                scale: 1.02;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.495);
+            }
+            a{
+                text-decoration: none;
+                color: white;
+                // &:hover{
+                //     color: $reddark;
+                // }
             }
         }
         

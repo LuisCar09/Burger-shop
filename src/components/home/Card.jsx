@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const Card = ({picture,name,price}) => {
-    // const [popup,setPopUp] = useState(false)
-    // const handlerMessage = () =>{
-        
-        
-    //     setPopUp()
-    //     setTimeout(() => {
-    //         setPopUp(false)
-    //     }, 1000);
-    // }
+    
     const [popup, setPopup] = useState(false);
 
     const handlerMessage = () => {
@@ -39,7 +32,7 @@ const Card = ({picture,name,price}) => {
         <p>{price}</p>
         <p className="item-title" >{name}</p>
     
-        <button onClick={handlerMessage}><Link to={'/order'}>Buy Now</Link> </button>
+        <button onClick={handlerMessage}><Link>Buy Now</Link> </button>
         {popup && 
         
             <aside className="popUp-container">
