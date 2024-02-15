@@ -28,7 +28,7 @@ import './styles/cart.scss'
 import './styles/shipping.scss'
 import './styles/orders.scss'
 import './styles/orderDetails.scss'
-import './styles/ordersCart.scss'
+import './styles/confirmOrdersCart.scss'
 
 function App() {
   return (
