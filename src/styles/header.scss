@@ -22,10 +22,10 @@ header{
             margin-right: 1.6rem;
             border: 2px solid $reddark;
             border-radius: 10%;
-            padding: 0.3rem;
+            padding: 0.3rem 0.6rem;
             text-decoration: none;
             font-weight: 500;
-            color: $lightdark;
+            color: $dark;
 
 
             &:hover{
@@ -35,6 +35,20 @@ header{
             }
             &:focus{
                 outline: none;
+            }
+        }
+        >ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li{
+                margin: 0 1.6rem 0 0;
+                a{
+                    text-decoration: none;
+                    color: $lightdark;
+                    font-weight: 500;
+                }
             }
         }
         >div{
