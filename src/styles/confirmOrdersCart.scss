@@ -10,6 +10,7 @@
         right: 14rem;
         top: 7rem;
         border-radius:  0 0 0.6rem 0.6rem ;
+        box-shadow: 0 0 10px rgba(0, 0, 5, 0.3);
         ul{
             max-height: 280px;
             overflow-y:scroll;
@@ -70,11 +71,12 @@
                 
             }
         }
-        >div{
+        >a{
             display: flex;
             justify-content: end;
             align-items: center;
             padding: 3rem 1rem 2rem 1rem;
+            text-decoration: none;
             >button{
                 padding: 1rem 2rem;
                 border: 0.2rem solid transparent;
@@ -82,10 +84,11 @@
                 background-color: $reddark;
                 
                 font-weight: 500;
-                >a{
-                    text-decoration: none;
-                    color: white;
+                color: white;
                     font-size: 1.6rem;
+                &:hover{
+                    scale: 1.01;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
                 }
             }
         }

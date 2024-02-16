@@ -11,6 +11,9 @@ import burger3 from '../../assets/burger3.png'
 const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     const [counter,setCounter] = useState(0)
     
+    const [amount,setAmount] = useState(0)
+    
+    
     //Aqui evitamos que el listener se ejecute cuando se haga click dentro del componente, de esta forma counter solo aumentara cuando el click sea fuera de este componente
     const handlerClickInsideCart = (event) => {
         event.stopPropagation()
@@ -35,6 +38,12 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
             
         }  
     },[counter,isClose])
+
+
+    const amountToAdd = (number) => {
+        setAmount(number)
+    }
+
 
     //Creamos una variable con todo el codigo html para poder luego utilizar el componenete <Fade> y haga el efecto que queremos
     const item = <div className="confirm-orders-cart" onClick={handlerClickInsideCart}>
@@ -78,9 +87,9 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
             </div>
 
         </aside>
-        <div>
-            <button onClick={handlerToOpen}> <Link to={'/order'}>Checkout</Link> </button>
-        </div>
+        <Link to={'/order'}>
+            <button onClick={handlerToOpen}>Checkout</button>
+        </Link>
     </div>
 
     
