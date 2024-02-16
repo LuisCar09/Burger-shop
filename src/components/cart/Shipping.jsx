@@ -19,7 +19,7 @@ const Shipping = ()=>{
     const handlerPopUp = (event) => {
         console.log('click');
         setPopUp(true)
-        event.preventDefault()
+        // event.preventDefault()
         setTimeout(() => {
             setPopUp(false)
         }, 1000);
@@ -33,17 +33,17 @@ const Shipping = ()=>{
 
             <div>
             <Label id={'house-number'} text={'H.No.'} />
-            <Input type="text" id={'house-number'} name={'house-number'} autoComplete={'false'} />
+            <Input type="text" id={'house-number'} name={'house-number'} autoComplete={'off'} required={true} />
             </div>
 
             <div>
             <Label id={'city'} text={'City'} />
-            <Input type="text" id={'city'} name={'city'} autoComplete={'true'} />
+            <Input type="text" id={'city'} name={'city'} autoComplete={'true'} required={true} />
             </div>
 
             <div>
             <Label id={'country'} text={'Country'} />
-            <select onChange={handlerCountry} type={'text'} id={'country'} name={'country'} >
+            <select onChange={handlerCountry} type={'text'} id={'country'} name={'country'} required={true} >
                 <option>
                     Country
                 </option>
@@ -63,12 +63,12 @@ const Shipping = ()=>{
 
             <div>
             <Label id={'zipCode'} text={'Pin Code'} />
-            <Input type="text" id={'zipCode'} name={'zipCode'}  required={true} patterns={'[0-9}{5}(-[0-9]{4})'} />
+            <Input type="text" id={'zipCode'} name={'zipCode'}  required={true} pattern={'[0-9}{5}(-[0-9]{4})'} />
             </div>
 
             <div>
             <Label id={'phone-number'} text={'Phone No.'} />
-            <Input type="number" id={'phone-number'} name={'phone-number'}  />
+            <Input type="number" id={'phone-number'} name={'phone-number'} required={true} />
             </div>
 
             <button onClick={handlerPopUp} type="submit"><Link to={'/orders'}>Confirm Order</Link></button>
