@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 
 const Card = ({picture,name,price}) => {
     
     const [popup, setPopup] = useState(false);
 
-    const handlerMessage = () => {
-      setPopup(true);
+    const handlerMessage = async () => {
+      
+
+      try {
+        const sendData = await axios.post('http://localhost:3001/add',{picture,name,price})
+        
+       console.log(sendData);
+        //Show us popUp
+        setPopup(true);
+      } catch (error) {
+        console.error('Server not found',error);
+      }
     };
   
     useEffect(() => {
@@ -32,7 +42,7 @@ const Card = ({picture,name,price}) => {
         <p>{price}</p>
         <p className="item-title" >{name}</p>
     
-        <button onClick={handlerMessage}><Link>Buy Now</Link> </button>
+        <button type="button" onClick={handlerMessage}><Link>Buy Now</Link> </button>
         {popup && 
         
             <aside className="popUp-container">

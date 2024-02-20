@@ -26,12 +26,12 @@ const Menu = () => {
     useEffect(()=>{
         getBurgers()
     },[])
-    console.log(burgers);
+   
     return(
         <section id="menu">
             <h2>Menu</h2>
             { <div>
-                {burgers.map((burger) => {return (<Card key={burger.id} picture={burger.images[1].lg} price ={burger.price} name={burger.name} />)})}
+                {burgers.map((burger) => {return (<Card key={burger.id} picture={burger.images[1].lg} price ={`${burger.price}€`} name={burger.name} />)})}
 
             </div> } 
         </section>
