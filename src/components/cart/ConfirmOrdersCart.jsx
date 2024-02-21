@@ -1,7 +1,9 @@
 import {React,useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Fade from '@mui/material/Fade';
 import CartItem from "./CartItem";
+import { v4 as uuidv4 } from "uuid";
 import burger1 from '../../assets/burger1.png'
 import burger2 from '../../assets/burger2.png'
 import burger3 from '../../assets/burger3.png'
@@ -10,10 +12,25 @@ import burger3 from '../../assets/burger3.png'
 
 const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     const [counter,setCounter] = useState(0)
-    
     const [amount,setAmount] = useState(0)
+    const [burgers,setBurgers] = useState([])
+    const uniqueId = uuidv4();
+    const getBurgers =  async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/add')
+            setBurgers(response.data)
+        } catch (error) {
+            console.error('Error fetching data',error);
+        }
+    }
+    
+    useEffect(()=>{
+        getBurgers()
+        
+    },[])
     
     
+
     //Aqui evitamos que el listener se ejecute cuando se haga click dentro del componente, de esta forma counter solo aumentara cuando el click sea fuera de este componente
     const handlerClickInsideCart = (event) => {
         event.stopPropagation()
@@ -49,15 +66,12 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     const item = <div className="confirm-orders-cart" onClick={handlerClickInsideCart}>
         {/* Dentro del componente se van a agregar la hamburguesas ordenadas */}
         <ul>
-        <CartItem src={burger1} alt={'Cheese Burger'} itemName={'Cheese Burger'} />
-        <CartItem src={burger2} alt={'Veg Cheese Burger'} itemName={'Veg Cheese Burger'} />
-
-        <CartItem src={burger3} alt={'Cheese Burger with French Fries'} itemName={'Cheese Burger with French Fries'} />
-        <CartItem src={burger3} alt={'Cheese Burger with French Fries'} itemName={'Cheese Burger with French Fries'} />
+        
+        {burgers && burgers.map((burger) => {return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} />)})}
         </ul>
-
-
-        <aside>
+        
+        
+        {burgers.length > 0 && <aside>
             <div>
                 <h2>
                     Sub Total
@@ -87,9 +101,10 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
             </div>
 
         </aside>
-        <Link to={'/order'}>
+        }
+        {burgers.length > 0  && <Link to={'/order'}>
             <button onClick={handlerToOpen}>Checkout</button>
-        </Link>
+        </Link>}
     </div>
 
     
