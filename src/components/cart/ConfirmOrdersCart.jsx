@@ -15,7 +15,11 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     const [counter, setCounter] = useState(0)
     const [amount, setAmount] = useState(0)
     const [burgers, setBurgers] = useState([])
-    
+    const [fullPrice,setFullPrice] = useState({
+        tax:0,
+        shippingCharges : 0,
+        total:0
+    })
     const getBurgers = async () => {
         try {
             
@@ -62,7 +66,26 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
         }
 
     }
+    //Here we calculate subtotal money and  then add tax,shipping charges 
+    const totalMoney = () => {
+        const number = amount
+        const tax = Number((number * 0.07).toFixed(2))
+        const shippingCharges = number > 18 ? 4 : 6;
+        const total = number + tax + shippingCharges;
 
+        setFullPrice((prevValue) => {
+            return{
+                ...prevValue,
+                tax:tax,
+                shippingCharges:shippingCharges,
+                total:total
+            }
+        })
+
+        
+        
+
+    }
 
     useEffect(() => {
         getBurgers()
@@ -73,7 +96,9 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
         
     },[burgers])
 
-    
+    useEffect(() => {
+        totalMoney()
+    },[amount])
 
     //Aqui evitamos que el listener se ejecute cuando se haga click dentro del componente, de esta forma counter solo aumentara cuando el click sea fuera de este componente
     const handlerClickInsideCart = (event) => {
@@ -126,28 +151,28 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
                 <h2>
                     Sub Total
                 </h2>
-                <p>€<span>{amount && amount.toFixed(2)}</span></p>
+                <p>€<span >{amount && amount.toFixed(2)}</span></p>
             </div>
 
             <div>
                 <h2>
                     Tax
                 </h2>
-                <p>€<span>{amount &&  (amount * 0.07).toFixed(2)}</span></p>
+                <p>€<span>{fullPrice && fullPrice.tax}</span></p>
             </div>
 
             <div>
                 <h2>
                     Shipping Charges
                 </h2>
-                <p>€<span>12</span></p>
+                <p>€<span>{fullPrice && fullPrice.shippingCharges}</span></p>
             </div>
 
             <div>
                 <h2>
                     Total
                 </h2>
-                <p>€<span>{amount &&  (Number((amount * 0.07).toFixed(2)) + 12 + amount).toFixed(2)}</span></p>
+                <p>€<span>{fullPrice && fullPrice.total}</span></p>
             </div>
 
         </aside>
@@ -166,3 +191,4 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
 }
 
 export default ConfirmOrdersCart;
+
