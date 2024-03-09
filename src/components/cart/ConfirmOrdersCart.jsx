@@ -5,108 +5,102 @@ import Fade from '@mui/material/Fade';
 import CartItem from "./CartItem";
 
 
-// import burger1 from '../../assets/burger1.png'
-// import burger2 from '../../assets/burger2.png'
-// import burger3 from '../../assets/burger3.png'
-
-
 
 const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     const [counter, setCounter] = useState(0)
     const [amount, setAmount] = useState(0)
     const [burgers, setBurgers] = useState([])
-    const [fullPrice,setFullPrice] = useState({
-        tax:0,
-        shippingCharges : 0,
-        total:0
+    const [fullPrice, setFullPrice] = useState({
+        tax: 0,
+        shippingCharges: 0,
+        total: 0
     })
-    const getBurgers = async () => {
-        try {
-            
-            const response = await axios.get('http://localhost:3001/add')
-             !response.data.length < 1 ? setBurgers(response.data) : setBurgers(response.data)
-            
-        } catch (error) {
-            console.error('Error fetching data', error);
-        }
-        
-    }
     
-    const getSubtotal = async () => {
+    const patchData = async (value, id) => {
         
-        let value = 0
-        //I setted it up to restar value to 0, that's I avoid to add any preview value
-        setAmount(0)
-        if (burgers.length > 0) {
-            
-            value = burgers.reduce((accumulator,burger) => {
-                return accumulator + Number(burger.price) * burger.quantity
-            },0)
-            
-            setAmount((prevValue) =>{
-                const newValue = prevValue + value       
-                setAmount(newValue)
-            })
-            
-        }
-    }
-
-    const patchData = async (value,id,number) => {
-
-        console.log('Se llamo',value,id);
         try {
 
             //If number equals to 1 or higher send to backend value of id and number, then at the backend will check it out if id exist on this, if exist it will change value on backend to show us the correct data on rendering data in card item
-            if (number >= 1) {
+            if (value >= 1) {
                 await axios.patch('http://localhost:3001/add', { id, value })
-                getBurgers()
+                getBurgers()//after sent data to patch, I call getBurger to update (burgers) and update with new values
             }
         } catch (error) {
             console.error('Error sending data to backend', error.message);
         }
 
     }
-    //Here we calculate subtotal money and  then add tax,shipping charges 
-    const totalMoney = () => {
-        const number = amount
-        const tax = Number((number * 0.07).toFixed(2))
-        const shippingCharges = number > 18 ? 4 : 6;
-        const total = number + tax + shippingCharges;
 
-        setFullPrice((prevValue) => {
-            return{
-                ...prevValue,
-                tax:tax,
-                shippingCharges:shippingCharges,
-                total:total
+    //it will call every time component is rendering
+
+    const getBurgers = async () => {
+        try {
+
+            const response = await axios.get('http://localhost:3001/add')
+            //  !response.data.length < 1 ? setBurgers(response.data) : 
+            if (!response.data.length < 1) {
+                setBurgers(response.data)
             }
-        })
 
-        
-        
+        } catch (error) {
+            console.error('Error fetching data', error);
+        }
 
     }
 
+    getBurgers();
+
+
+    //here we request backend data to calculate subtotal of the burgers chosen by client
     useEffect(() => {
-        getBurgers()
-        
-    }, [])
-    useEffect(()=>{
+        const getSubtotal = async () => {
+
+            let value = 0
+            //I setted it up to restar value to 0, that's I avoid to add any preview value
+            setAmount(0)
+            if (burgers.length > 0) {
+
+                value = burgers.reduce((accumulator, burger) => {
+                    return accumulator + Number(burger.price) * burger.quantity
+                }, 0)
+
+                setAmount((prevValue) => {
+                    //I have to review this because I have to change it
+                    const newValue = prevValue + value
+                    setAmount(newValue)
+                })
+
+            }
+        }
         getSubtotal()
-        
-    },[burgers])
+
+    }, [burgers])
 
     useEffect(() => {
+        //Here we calculate subtotal money and  then add tax,shipping charges 
+        const totalMoney = () => {
+            const number = amount
+            const tax = Number((number * 0.07).toFixed(2))
+            const shippingCharges = number > 18 ? 4 : 6;
+            const total = number + tax + shippingCharges;
+
+            setFullPrice((prevValue) => {
+                return {
+                    ...prevValue,
+                    tax: tax,
+                    shippingCharges: shippingCharges,
+                    total: total
+                }
+            })
+
+        }
         totalMoney()
-    },[amount])
+    }, [amount])
 
     //Aqui evitamos que el listener se ejecute cuando se haga click dentro del componente, de esta forma counter solo aumentara cuando el click sea fuera de este componente
     const handlerClickInsideCart = (event) => {
         event.stopPropagation()
     }
-
-    
-
 
     useEffect(() => {
 
@@ -119,7 +113,7 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
         window.addEventListener('click', handlerToOpen)
 
         return (() => { window.removeEventListener('click', handlerToOpen) })
-            
+
     }, [])
 
 
@@ -132,7 +126,7 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     }, [counter, isClose])
 
 
-    
+
 
 
     //Creamos una variable con todo el codigo html para poder luego utilizar el componenete <Fade> y haga el efecto que queremos
@@ -141,7 +135,8 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
         <ul>
 
             {
-                burgers && burgers.map((burger) => { return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} amount = {burger.quantity} id = {burger.id} patchData = {patchData} />) })
+                
+                burgers && burgers.map((burger) => { return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} amount={burger.quantity} id={burger.id} patchData={patchData} />) })
             }
         </ul>
 
@@ -172,13 +167,13 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
                 <h2>
                     Total
                 </h2>
-                <p>€<span>{fullPrice && fullPrice.total}</span></p>
+                <p>€<span>{fullPrice && (fullPrice.total).toFixed(2)}</span></p>
             </div>
 
         </aside>
         }
         {burgers.length > 0 && <Link to={'/order'}>
-            <button onClick={() => {setCounter((prevValue) => { return (prevValue + 1) })}}>Checkout</button>
+            <button onClick={() => { setCounter((prevValue) => { return (prevValue + 1) }) }}>Checkout</button>
         </Link>}
     </div>
 
