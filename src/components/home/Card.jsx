@@ -2,50 +2,52 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Card = ({picture,name,price}) => {
-    
-    const [popup, setPopup] = useState(false);
+const Card = ({ id, picture, name, price,sendBurger }) => {
 
-    const handlerMessage = () => {
-      setPopup(true);
+  const [popup, setPopup] = useState(false);
+
+  const handlerMessage = () => {
+    
+    return(sendBurger({ picture, name, price, id, }))
+    
+  };
+
+  useEffect(() => {
+    let timeoutId;
+    if (popup) {
+      timeoutId = setTimeout(() => {
+        setPopup(false);
+      }, 1000);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
     };
-  
-    useEffect(() => {
-      let timeoutId;
-      if (popup) {
-        timeoutId = setTimeout(() => {
-          setPopup(false);
-        }, 1000);
-      }
-  
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }, [popup]);
-    
-    return(
+  }, [popup]);
+
+  return (
     <div className="menuCard">
-    <div></div>
-    <main>
-        
-        <img  src={picture} alt={name}></img>
-        <p>{price}</p>
+      <div></div>
+      <main>
+
+        <img src={picture} alt={name}></img>
+        <p>{price}€</p>
         <p className="item-title" >{name}</p>
-    
-        <button onClick={handlerMessage}><Link>Buy Now</Link> </button>
-        {popup && 
-        
-            <aside className="popUp-container">
-                <div className="overlay">
-                    <div className="popUp-message">Added to cart!</div>
-                </div>
-            </aside>
-        
+
+        <button type="button" onClick={handlerMessage}><Link>Buy Now</Link> </button>
+        {popup &&
+
+          <aside className="popUp-container">
+            <div className="overlay">
+              <div className="popUp-message">Added to cart!</div>
+            </div>
+          </aside>
+
         }
-        
-        
-    </main>
-</div>)
+
+
+      </main>
+    </div>)
 }
 
 export default Card;
