@@ -24,10 +24,10 @@ const CartItem = ({ src, alt, itemName, amount, id,patchData }) => {
     const numberToSubtract = () => {
         const newValue = number - 1;
 
-        newValue <= 1 ? setNumber(1) : setNumber(newValue)
+        newValue <= 0 ? setNumber(0) : setNumber(newValue)
 
         //using useRef, we ref number and then we send data to backend and avoiding multiple rendenring issues
-        newValue <= 1 ? prevNumberRef.current = 1 : prevNumberRef.current = newValue;
+        newValue <= 0 ? prevNumberRef.current = 0 : prevNumberRef.current = newValue;
 
         //here we send data to patchData function which lives in confirmOrdersCart. this function send data to backend to changes quantity of burger chosen
         patchData(prevNumberRef.current, id)
@@ -50,7 +50,7 @@ const CartItem = ({ src, alt, itemName, amount, id,patchData }) => {
         return () => {prevNumberRef.current = null};
     },[] )
     return (
-        <article>
+        <div>
             <div>
                 <h3>{itemName}</h3>
                 <img src={src} alt={alt}></img>
@@ -61,7 +61,7 @@ const CartItem = ({ src, alt, itemName, amount, id,patchData }) => {
                 { <span>{number}</span> }
                 <button onClick={numberToAdd}>+</button>
             </div>
-        </article>)
+        </div>)
 }
 
 export default CartItem;
