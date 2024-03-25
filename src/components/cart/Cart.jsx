@@ -15,15 +15,20 @@ const getBurgers = async () =>{
         return []
     }
 }
-//terminar la carta y finalizar como va a quedar la cart, esta muy desordenada
-const Delete = ({showDeleteItem})=>{
+//Terminar de arreglar el componente delete para poder enviar los datos al backend y eliminar el elemente
+const Delete = ({showDeleteItem,deleteItem})=>{
+    
     return(
         <article id="delete-pop-up">
             <div>
                 <div>
                 <p>Do you want to delete this item ?</p>
-                <button onClick={()=>{showDeleteItem(false)}}>Yes</button>
-                <button onClick={()=>{showDeleteItem(false)}} >No</button>
+                <button onClick={()=>{
+                    deleteItem(true)
+                    showDeleteItem(false)}}>Yes</button>
+                <button onClick={()=>{
+                    deleteItem(false)
+                    showDeleteItem(false)}} >No</button>
                 </div>
             </div>
         </article>
@@ -33,8 +38,9 @@ const Delete = ({showDeleteItem})=>{
 const Cart = () => {
     const [burgers, setBurgers] = useState([])
     const [showOrdersItems,setShowOrdersItems] = useState(false)
-    const [burgersHasChange,setBurgersHasChange] = useState(0);
+    const [isShowWantToDeleteItem, setIsShowWantToDeleteItem] = useState(false)
     const [deleteItem,setDeleteItem] = useState(false)
+    const [burgersHasChange,setBurgersHasChange] = useState(0);
     const [amount,setAmount] = useState(0)
     const [totalAmout,setTotalAmout] = useState({
         tax:0,
@@ -48,9 +54,11 @@ const Cart = () => {
         try {
             
             if (value >= 1) {
+                
                 axios.patch(API, { value, id })
                 setBurgersHasChange(prevValue => prevValue + 1)
             }else{
+                console.log('Value line 55',value)
                 setDeleteItem(true)
                 // axios.delete(API,{value,id})
             }
@@ -58,6 +66,20 @@ const Cart = () => {
             console.error('Error sending data to server ',error.message);
         }
     }
+    //VOY AQUI DEBO ENVIAR LA DATA Y LUEGO ELIMINARLA SIEMPRE Y CUANDO EL USUARIO DIGA QUE SI
+    const deleteData = (value, id) => {
+        try {
+            console.log(`Value: ${value} id: ${id} line 71 `)
+            axios.delete(API, { value, id })
+        }
+        catch(error) {
+        console.log(error.message)
+        }
+}
+
+
+
+    
     useEffect(() => {
 
         const fetchData = async () => {
@@ -93,22 +115,21 @@ const Cart = () => {
     })
    },[amount])
    
+   //Show us not-order-yet section
    useEffect(()=>{
     burgers.length > 0 ? setShowOrdersItems(true) : setShowOrdersItems(false)
    },[burgers])
 
-   const showDeleteItem = (boolean) =>{
-    setDeleteItem(boolean)
-   }
+   
 
     return (
 
         <section className="cart-section" >
-            {deleteItem ? <Delete showDeleteItem={showDeleteItem} /> : null}
+            {isShowWantToDeleteItem ? <Delete showDeleteItem={setIsShowWantToDeleteItem} deleteItem= {setDeleteItem} /> : null}
             {showOrdersItems && <div /*style={{display: !showOrdersItems? 'none': 'block'}}/>*/>
 
                 <article>
-                    {burgers && burgers.map((burger) => { return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} amount={burger.quantity} id={burger.id} patchData={patchData} />) })}
+                    {burgers && burgers.map((burger) => { return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} amount={burger.quantity} id={burger.id} patchData={patchData} deleteData={deleteData} setIsShowWantToDeleteItem={setIsShowWantToDeleteItem} />) })}
                 </article>
 
 
@@ -154,7 +175,7 @@ const Cart = () => {
                 <div>
                     <div>
                         <h2>Not order yet, make you order.</h2>
-                        <button><Link to={'/menu'}>Go to menu</Link></button>
+                        <Link to={'/menu'}><button>Go to menu</button></Link>
                     </div>
                 </div>
             </div> : null} 

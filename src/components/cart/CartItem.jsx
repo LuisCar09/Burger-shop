@@ -1,11 +1,15 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-const CartItem = ({ src, alt, itemName, amount, id,patchData }) => {
+const CartItem = ({ src, alt, itemName, amount, id,patchData,showDeleteItemWarning }) => {
 
     const [number, setNumber] = useState(0)
+    const [wantToDelete,setWantToDelete] = useState(false)
     const prevNumberRef = useRef(number)
-    
+    const showWarning = () =>{
+        
+        
+    }
     
     //here we  add +1 every time (+) is clicked 
     const numberToAdd = async () => {
@@ -29,8 +33,9 @@ const CartItem = ({ src, alt, itemName, amount, id,patchData }) => {
         //using useRef, we ref number and then we send data to backend and avoiding multiple rendenring issues
         newValue <= 0 ? prevNumberRef.current = 0 : prevNumberRef.current = newValue;
 
-        //here we send data to patchData function which lives in confirmOrdersCart. this function send data to backend to changes quantity of burger chosen
-        patchData(prevNumberRef.current, id)
+        //here we send data to patchData function which lives in confirmOrdersCart. this function send data to backend to changes quantity of burger chosen or if newValue === 0 send data to delete
+        
+        newValue > 0 ? patchData(prevNumberRef.current, id) : showDeleteItemWarning(prevNumberRef.current, id)
         //  sendDataToPatch(prevNumberRef.current)  
 
 
