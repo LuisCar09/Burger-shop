@@ -86,38 +86,40 @@
                         justify-content: center;
                         align-items: center;
 
-                        
-                        >div{
+
+                        >div {
                             border: 1px solid $reddark;
                             padding: 0.2rem 2rem;
                             border-radius: 1rem;
                             background-color: white;
                             box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+
                             p {
                                 font-size: 1.6rem;
                                 margin: 0 0 1rem 0;
                                 font-weight: bold;
                             }
-                            
-                                >button{
-                                    padding: 0.4rem 2rem;
-                                    margin: 0 1rem;
-                                    font-size: 1.6rem;
-                                    border-radius: 0.6rem;
-                                    border: transparent;
-                                    font-weight: 500;
-                                    cursor: pointer;
-                                    
-                                    &:last-child{
-                                        background-color: $reddark;
-                                        color: white;
-                                    }
-                                    &:hover{
-                                        transform: scale(1.05);
-                                    }
-                                    
+
+                            >button {
+                                padding: 0.4rem 2rem;
+                                margin: 0 1rem;
+                                font-size: 1.6rem;
+                                border-radius: 0.6rem;
+                                border: transparent;
+                                font-weight: 500;
+                                cursor: pointer;
+
+                                &:last-child {
+                                    background-color: $reddark;
+                                    color: white;
                                 }
-                            
+
+                                &:hover {
+                                    transform: scale(1.05);
+                                }
+
+                            }
+
                         }
                     }
                 }
@@ -126,6 +128,7 @@
 
         aside {
             margin-top: 2rem;
+
             >div {
                 display: flex;
                 flex-direction: column;
@@ -140,13 +143,15 @@
                     padding: 1rem;
                     color: $lightdark;
                     font-size: 1.4rem;
-                    h2{
+
+                    h2 {
                         font-size: 2.4rem;
                     }
+
                     >p {
                         font-size: 2rem;
                     }
-                    
+
 
                 }
             }
@@ -163,29 +168,31 @@
         margin-top: 2rem;
         margin-right: 1rem;
 
-        button {
-            padding: 1rem 2rem;
-            border: 0.2rem solid transparent;
-            border-radius: 0.8rem;
-            background-color: $reddark;
-            font-weight: 500;
-            transition: box-shadow 0.3s;
-            cursor: pointer;
-            >a {
-                text-decoration: none;
-                color: white;
+        >a {
+            text-decoration: none;
+
+            button {
+                padding: 1rem 2rem;
+                border: 0.2rem solid transparent;
+                border-radius: 0.8rem;
+                background-color: $reddark;
+                font-weight: 500;
+                transition: box-shadow 0.3s;
+                cursor: pointer;
                 font-size: 1.8rem;
-            }
-            &:hover{
-                scale: 1.05;
-                box-shadow: 0 0 20px rgba(192, 192, 192, 1);
-                
+                color: white;
+
+                &:hover {
+                    scale: 1.05;
+                    box-shadow: 0 0 20px rgba(192, 192, 192, 1);
+
+                }
             }
         }
     }
 
     #not-order-yet {
-        
+
         background-color: white;
         background-color: rgb(255, 239, 239, 0.5);
 
@@ -200,9 +207,10 @@
                 font-size: 2rem;
                 margin-bottom: 2rem;
             }
+
             a {
                 text-decoration: none;
-                
+
                 button {
                     padding: 1rem 2rem;
                     border: 0.2rem solid transparent;
@@ -212,12 +220,13 @@
                     color: white;
                     font-size: 1.6rem;
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         scale: 1.1;
                     }
                 }
             }
-            
+
         }
     }
 
@@ -228,12 +237,12 @@
     //     font-family: inherit;
     //     text-align: center;
     //     z-index: 1;
-       
+
     //     >div{
     //         position: absolute;
     //         width: 100%;
     //         height: 100%;
-            
+
     //         >div{
     //             position: relative;
     //             display: inline-block;
@@ -280,8 +289,8 @@
 }
 
 @media screen and (min-width:1240px) {
-    .cart-section{
-        >div{
+    .cart-section {
+        >div {
             margin: 0 auto;
         }
     }

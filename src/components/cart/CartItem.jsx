@@ -89,7 +89,7 @@ const CartItem = ({ src, alt, itemName, amount, id,patchData,deleteItem }) => {
             
             deleteItem(id)
         }
-    },[wantToDelete,deleteItem])
+    },[wantToDelete,deleteItem,id])
     return (
         <div>
             <div>

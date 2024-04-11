@@ -24,11 +24,11 @@ const Delete = ({ showDeleteItem, deleteItem }) => {
                 <div>
                     <p>Do you want to delete this item ?</p>
                     <button onClick={() => {
-                        deleteItem(true)
+                        // deleteItem(true)
                         showDeleteItem(false)
                     }}>Yes</button>
                     <button onClick={() => {
-                        deleteItem(false)
+                        // deleteItem(false)
                         showDeleteItem(false)
                     }} >No</button>
                 </div>
@@ -41,7 +41,7 @@ const Cart = () => {
     const [burgers, setBurgers] = useState([])
     const [showOrdersItems, setShowOrdersItems] = useState(false)
     const [isShowWantToDeleteItem, setIsShowWantToDeleteItem] = useState(false)
-    const [deleteItem, setDeleteItem] = useState(false)
+    // const [deleteItem, setDeleteItem] = useState(false)
     const [burgersHasChange, setBurgersHasChange] = useState(0);
     const [amount, setAmount] = useState(0)
     const [totalAmout, setTotalAmout] = useState({
@@ -126,7 +126,7 @@ const Cart = () => {
     return (
 
         <section className="cart-section" >
-            {isShowWantToDeleteItem ? <Delete showDeleteItem={setIsShowWantToDeleteItem} deleteItem={setDeleteItem} /> : null}
+            {isShowWantToDeleteItem ? <Delete showDeleteItem={setIsShowWantToDeleteItem} /> : null}
             {showOrdersItems && <div /*style={{display: !showOrdersItems? 'none': 'block'}}/>*/>
 
                 <article>
@@ -168,7 +168,9 @@ const Cart = () => {
                     </div>
 
                     <div id="button-container">
-                        <button> <Link to={'/shipping'}>Checkout</Link> </button>
+                         <Link to={'/shipping'}>
+                         <button>Checkout</button>
+                         </Link> 
                     </div>
                 </aside>
 
