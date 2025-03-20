@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
 import axios from "axios";
-const API = 'http://localhost:3001/add'
+const API = 'https://server-burger-shop.onrender.com/add'
 // fetching data to get burgers
 const getBurgers = async () => {
     try {
@@ -52,7 +52,7 @@ const Cart = () => {
 
 
     const patchData = async (value, id) => {
-        console.log(`Linea 55, value: ${value} | id: ${id}`)
+        
         try {
 
             if (value >= 1) {
@@ -68,9 +68,9 @@ const Cart = () => {
     const deleteData = async (id) => {
 
         try {
-            console.log(`id: ${id} line 73`)
+           
             const detele = await axios.delete(`${API}/${id}`)
-            console.log(detele.data);
+            
             setBurgers(burgers.filter(burgers => burgers.id !== id))
         }
         catch (error) {
@@ -130,7 +130,7 @@ const Cart = () => {
             {showOrdersItems && <div /*style={{display: !showOrdersItems? 'none': 'block'}}/>*/>
 
                 <article>
-                    {burgers && burgers.map((burger) => { return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} amount={burger.quantity} id={burger.id} patchData={patchData} deleteData={deleteData} deleteItem={deleteData} />) })}
+                    {burgers && burgers.map((burger) => { return (<CartItem key={burger.id} src={burger.picture} alt={burger.name} itemName={burger.name} amount={burger.quantity} id={burger.id} patchData={patchData}  deleteItem={deleteData} />) })}
 
                 </article>
 

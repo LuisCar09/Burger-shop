@@ -13,7 +13,7 @@ const Login = () =>{
     const [isRegisterClicked,setIsRegister] = useState(false)
     const handlerButton = (event) => {
         // event.preventDefault()
-        console.log('click');
+       
     }
 
     const handlerLogin = () =>{

@@ -18,7 +18,7 @@ const DropDownMenu = ({ close, isOpen }) => {
     const [count, setCount] = useState(0)
 
     const handler = () => {
-        console.log(count);
+       
         setCount((prevValue) => { return (prevValue + 1) })
 
     }

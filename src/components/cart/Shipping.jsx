@@ -17,7 +17,7 @@ const Shipping = ()=>{
         
     }
     const handlerPopUp = (event) => {
-        console.log('click');
+        
         setPopUp(true)
         // event.preventDefault()
         setTimeout(() => {

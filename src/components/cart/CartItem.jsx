@@ -1,7 +1,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
+const API = 'https://server-burger-shop.onrender.com/add'
 
-const Delete = ({setShowWantToDelete, setWantToDelete,setNumber})=>{
+
+const Delete = ({setShowWantToDelete, setWantToDelete,setNumber,deleteItem})=>{
     
     return(
         <div id="delete-pop-up">
@@ -87,7 +90,17 @@ const CartItem = ({ src, alt, itemName, amount, id,patchData,deleteItem }) => {
         
         if (wantToDelete) {
             
-            deleteItem(id)
+            // deleteItem(id)
+            console.log('borrar');
+        //    deleteItem(id)
+            const deleteItemFunction = async () =>{
+             try {
+                 await axios.delete(`${API}/${id}`)
+             } catch (error) {
+                 console.error('Error deleting item',error.message)
+             }
+            }
+             deleteItemFunction()
         }
     },[wantToDelete,deleteItem,id])
     return (

@@ -5,7 +5,7 @@ import axios from 'axios';
 // import burger3 from '../../assets/burger3.png'
 import Card from "./Card";
 
-const API = 'http://localhost:3001/burgers'
+const API = 'https://server-burger-shop.onrender.com/burgers'
 const Menu = () => {
     // const burgers = [{photo:burger1,price:'100€',name:'Cheese Burger'},{photo:burger2,price:'150€',name:'Veg Cheese Burger'},{photo:burger3,price:'200€',name:'Cheese burger with french fries'},{photo:burger1,price:'100€',name:'Cheese Burger'},{photo:burger2,price:'150€',name:'Veg Cheese Burger'},{photo:burger3,price:'200€',name:'Cheese burger with french fries'}]
     
@@ -29,13 +29,13 @@ const Menu = () => {
     }
     //Aqui modificamos para que el contenedor padre maneje todo las peticiones.
     const sendBurger = async (data) => {
-        console.log(data);
+       
         const {name,picture,price,id} = data;
-        console.log(name,picture,price,id);
+        
         try {
-            const sendData = await axios.post('http://localhost:3001/add', { picture, name, price, id, })
+            const sendData = await axios.post('https://server-burger-shop.onrender.com/add', { picture, name, price, id, })
 
-            console.log(sendData);
+            
             
         } catch (error) {
             console.error('Server not found', error);

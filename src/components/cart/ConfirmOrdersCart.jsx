@@ -22,7 +22,7 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
 
             //If number equals to 1 or higher send to backend value of id and number, then at the backend will check it out if id exist on this, if exist it will change value on backend to show us the correct data on rendering data in card item
             if (value >= 1) {
-                await axios.patch('http://localhost:3001/add', { id, value })
+                await axios.patch('https://server-burger-shop.onrender.com/add', { id, value })
                 getBurgers()//after sent data to patch, I call getBurger to update (burgers) and update with new values
             }
         } catch (error) {
@@ -36,7 +36,7 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
     const getBurgers = async () => {
         try {
 
-            const response = await axios.get('http://localhost:3001/add')
+            const response = await axios.get('https://server-burger-shop.onrender.com/add')
             //  !response.data.length < 1 ? setBurgers(response.data) : 
             if (!response.data.length < 1) {
                 setBurgers(response.data)
@@ -48,7 +48,9 @@ const ConfirmOrdersCart = ({ isOpenCart, isClose }) => {
 
     }
 
+   useEffect(()=>{
     getBurgers();
+   },[])
 
 
     //here we request backend data to calculate subtotal of the burgers chosen by client
