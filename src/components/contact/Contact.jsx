@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import textArea from "../text_area/TextArea";
 import Input from '../input/Input'
